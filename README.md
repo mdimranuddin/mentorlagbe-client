@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MentorLagbe – Smart Tuition & Mentorship Platform
 
-## Getting Started
+Students find approved tutors by subject, class and mode. Tutors post tuitions and manage applicants.
+Admins approve posts, manage roles and track Stripe revenue.
 
-First, run the development server:
+- **Live site:** (add link)
+- **Client repo:** (add link)  |  **Server repo:** (add link)
+- **Admin:** email / password (add)  |  **Tutor:** email / password (add)  |  **Student:** email / password (add)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
+- Role-based auth (Student, Tutor, Admin) with Better Auth + JWT, role checks on the Express API too
+- Tutors post tuitions with an ImgBB banner. Admin approves or rejects before they go public
+- Browse tuitions: server-side search, filters (subject, class, mode), sorting and pagination
+- Students apply once per tuition and track status. Tutors accept or reject applicants
+- Pro plans with Stripe Checkout (Tutor $15: unlimited posts and verified badge, Student $10: priority booking)
+- Dark and light theme, responsive layout, loading, empty and error states
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech
+Next.js (App Router, TypeScript), Tailwind CSS, Better Auth, Express, MongoDB, Stripe, ImgBB, Sonner, Lucide
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Collections
+users, tuitions, applications, payments
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Run locally
+Server: cd server && npm install && cp .env.example .env && npm run seed && npm run dev
+Client: cd client && npm install && cp .env.example .env.local && npm run dev
+Make an admin: sign up, then `cd server && npm run make-admin -- your@email.com`
 
-## Learn More
+## Server API
+| Who | Endpoint |
+|---|---|
+| Public | GET /api/tuitions, GET /api/tuitions/:id, GET /api/stats/public |
+| Any user | GET/PATCH /api/users/me |
+| Student | POST /api/applications, GET /api/applications/my, DELETE /api/applications/:id, GET /api/stats/student |
+| Tutor | POST/PATCH/DELETE /api/tuitions, PATCH /api/tuitions/:id/toggle, GET /api/tuitions/mine/list, GET /api/applications/tutor, PATCH /api/applications/:id/status, GET /api/stats/tutor |
+| Admin | GET /api/users, PATCH /api/users/:id/role, GET /api/tuitions/admin/all, PATCH /api/tuitions/:id/status, GET /api/subscription/payments, GET /api/stats/admin |
+| Tutor + Student | POST /api/subscription/activate (verifies the payment with Stripe) |
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Environment variables
+See `.env.example` in both folders. Never commit real keys.
