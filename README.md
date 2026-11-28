@@ -57,4 +57,14 @@ npm run dev
 | Tutor + Student | POST /api/subscription/activate (verifies the payment with Stripe) |
 
 ## Environment variables
-See `.env.example` in both folders. Never commit real keys.
+
+Create `client/.env.local` with these names (use your own values, never commit them):
+
+```
+BETTER_AUTH_SECRET=
+BETTER_AUTH_URL=
+MONGODB_URI=
+NEXT_PUBLIC_API_URL=
+STRIPE_SECRET_KEY=
+NEXT_PUBLIC_IMGBB_API_KEY=
+```
