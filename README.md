@@ -26,9 +26,25 @@ Next.js (App Router, TypeScript), Tailwind CSS, Better Auth, Express, MongoDB, S
 users, tuitions, applications, payments
 
 ## Run locally
-Server: cd server && npm install && cp .env.example .env && npm run seed && npm run dev
-Client: cd client && npm install && cp .env.example .env.local && npm run dev
-Make an admin: sign up, then `cd server && npm run make-admin -- your@email.com`
+
+**Server**
+```bash
+cd server
+npm install
+cp .env.example .env
+npm run seed
+npm run dev
+```
+
+**Client**
+```bash
+cd client
+npm install
+cp .env.example .env.local
+npm run dev
+```
+
+**Make an admin:** sign up first, then run `cd server && npm run make-admin -- your@email.com`
 
 ## Server API
 | Who | Endpoint |
