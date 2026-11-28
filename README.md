@@ -5,8 +5,11 @@ Admins approve posts, manage roles and track Stripe revenue.
 
 - **Live site:** https://mentorlagbe-client-nu.vercel.app
 - **API (server):** https://mentorlagbe-server-nine-ivory.vercel.app
-- **Client repo:** https://github.com/mdimranuddin/mentorlagbe-client  |  **Server repo:** https://github.com/mdimranuddin/mentorlagbe-server
-- **Admin:** admin@test.com / Test1234  |  **Tutor:** tutor@test.com / Test1234  |  **Student:** student@test.com / Test1234
+- **Client repo:** https://github.com/mdimranuddin/mentorlagbe-client
+- **Server repo:** https://github.com/mdimranuddin/mentorlagbe-server
+- **Admin:** admin@test.com / Test1234
+- **Tutor:** tutor@test.com / Test1234
+- **Student:** student@test.com / Test1234
 
 ## Features
 - Role-based auth (Student, Tutor, Admin) with Better Auth + JWT, role checks on the Express API too
