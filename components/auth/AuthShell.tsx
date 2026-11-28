@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Logo from "@/components/Logo";
 import { Check } from "lucide-react";
 
@@ -30,7 +29,7 @@ export default function AuthShell({ title, sub, children, footer }: {
 
       {/* form side */}
       <section className="mx-auto w-full max-w-md">
-        <Link href="/" className="mb-6 inline-block lg:hidden"><Logo /></Link>
+        <div className="mb-6 inline-block lg:hidden"><Logo /></div>
         <h1 className="text-4xl font-extrabold">{title}</h1>
         <p className="mt-2 text-muted">{sub}</p>
         <div className="mt-8">{children}</div>
